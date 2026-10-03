@@ -1,0 +1,481 @@
+/* ============================================================
+   style.css – TableCraft: HTML & CSS Tables
+   Author : TableCraft Project
+   Purpose: Style the HTML table demo page.
+            This file uses only plain CSS — no frameworks.
+   ============================================================ */
+
+
+/* ============================================================
+   1. GOOGLE FONT IMPORT
+   We import "Inter" for a clean, modern look.
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+
+/* ============================================================
+   2. CSS CUSTOM PROPERTIES (VARIABLES)
+   Variables make it easy to change colors in one place.
+   Usage: var(--variable-name)
+   ============================================================ */
+:root {
+  --clr-bg        : #f0f4f8;        /* Page background */
+  --clr-header-bg : #1e293b;        /* Dark header background */
+  --clr-header-txt: #f8fafc;        /* Header text color */
+  --clr-accent    : #6366f1;        /* Indigo accent (headings, tags) */
+  --clr-accent-lt : #e0e7ff;        /* Light indigo for section headings */
+  --clr-card-bg   : #ffffff;        /* White card background */
+  --clr-border    : #cbd5e1;        /* Border color */
+  --clr-th-bg     : #1e293b;        /* Table header cell background */
+  --clr-th-txt    : #f8fafc;        /* Table header cell text */
+  --clr-row-even  : #f8fafc;        /* Alternating even row color */
+  --clr-row-odd   : #ffffff;        /* Alternating odd row color */
+  --clr-hover     : #ede9fe;        /* Row hover color (light purple) */
+  --clr-price-bg  : #fef9c3;        /* Price column highlight (yellow) */
+  --clr-price-txt : #713f12;        /* Price column text (dark brown) */
+  --clr-pass-bg   : #dcfce7;        /* Pass result background (green) */
+  --clr-pass-txt  : #14532d;        /* Pass result text */
+  --clr-fail-bg   : #fee2e2;        /* Fail result background (red) */
+  --clr-fail-txt  : #7f1d1d;        /* Fail result text */
+  --clr-span-bg   : #ede9fe;        /* colspan cell highlight (purple) */
+  --clr-span-txt  : #4c1d95;        /* colspan cell text */
+  --clr-footer-bg : #1e293b;        /* Footer background (same as header) */
+  --clr-info-bg   : #eff6ff;        /* Info box background (light blue) */
+  --clr-info-bdr  : #bfdbfe;        /* Info box border */
+  --radius-card   : 14px;           /* Border radius for cards */
+  --shadow-card   : 0 4px 24px rgba(0,0,0,0.09);  /* Card shadow */
+}
+
+
+/* ============================================================
+   3. GLOBAL RESET & BASE STYLES
+   * selector resets margin/padding/box-sizing for all elements.
+   ============================================================ */
+*,
+*::before,
+*::after {
+  margin     : 0;
+  padding    : 0;
+  box-sizing : border-box;  /* padding/border included in element width */
+}
+
+/* Base font and background for the whole page */
+body {
+  font-family   : 'Inter', sans-serif;
+  background    : var(--clr-bg);
+  color         : #334155;          /* Default text color (dark slate) */
+  line-height   : 1.6;
+  min-height    : 100vh;
+}
+
+
+/* ============================================================
+   4. HEADER STYLES
+   The <header> tag at the top of the page.
+   ============================================================ */
+header {
+  background : var(--clr-header-bg);
+  padding    : 48px 24px 40px;
+  text-align : center;
+}
+
+/* Inner wrapper to constrain header width */
+.header-content {
+  max-width : 800px;
+  margin    : 0 auto;
+}
+
+/* Main title (h1) */
+header h1 {
+  font-size   : 2.6rem;
+  font-weight : 700;
+  color       : var(--clr-header-txt);
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+}
+
+/* Subtitle under the title */
+.subtitle {
+  color       : #94a3b8;  /* light grey */
+  font-size   : 1rem;
+  margin-bottom: 20px;
+}
+
+/* Row of HTML tag badges */
+.tag-row {
+  display        : flex;
+  flex-wrap      : wrap;
+  justify-content: center;
+  gap            : 8px;
+  margin-top     : 12px;
+}
+
+/* Individual tag badge */
+.tag {
+  background    : #334155;          /* Dark slate */
+  color         : #a5b4fc;          /* Light indigo */
+  font-size     : 0.78rem;
+  font-family   : 'Courier New', monospace;
+  padding       : 4px 10px;
+  border-radius : 20px;
+  border        : 1px solid #475569;
+}
+
+
+/* ============================================================
+   5. MAIN CONTENT AREA
+   Centers content and sets max width for readability.
+   ============================================================ */
+main {
+  max-width : 1100px;
+  margin    : 0 auto;           /* Centers the content */
+  padding   : 40px 20px 60px;
+}
+
+
+/* ============================================================
+   6. SECTION STYLES
+   Each table is inside a <section class="table-section">.
+   ============================================================ */
+.table-section {
+  margin-bottom : 60px;
+}
+
+/* Section heading container */
+.section-header {
+  margin-bottom : 16px;
+}
+
+/* Section <h2> heading */
+.section-header h2 {
+  font-size     : 1.4rem;
+  font-weight   : 700;
+  color         : var(--clr-accent);
+  border-left   : 5px solid var(--clr-accent);
+  padding-left  : 12px;
+  margin-bottom : 6px;
+}
+
+/* Description text under section heading */
+.section-desc {
+  color       : #64748b;    /* slate-500 */
+  font-size   : 0.92rem;
+  margin-left : 17px;       /* align with heading text */
+}
+
+/* <code> inline tags inside descriptions */
+.section-desc code,
+.info-box code {
+  background    : #e0e7ff;
+  color         : #3730a3;
+  padding       : 2px 6px;
+  border-radius : 4px;
+  font-size     : 0.85em;
+  font-family   : 'Courier New', monospace;
+}
+
+
+/* ============================================================
+   7. TABLE CARD (CONTAINER)
+   Each table is wrapped in a <div class="table-card">.
+   border-radius and box-shadow make it look like a card.
+   overflow:auto makes the table scrollable on small screens.
+   ============================================================ */
+.table-card {
+  background    : var(--clr-card-bg);
+  border-radius : var(--radius-card);
+  box-shadow    : var(--shadow-card);
+  border        : 1px solid var(--clr-border);
+  overflow-x    : auto;   /* Enables horizontal scroll on mobile */
+  margin-bottom : 16px;
+}
+
+
+/* ============================================================
+   8. TABLE BASE STYLES
+   Core table styling: full width, collapsed borders, etc.
+   ============================================================ */
+table {
+  width           : 100%;
+  border-collapse : collapse;  /* Merges double borders into single lines */
+  min-width       : 500px;     /* Prevents table from getting too narrow */
+}
+
+/* Table caption (title) */
+caption {
+  caption-side  : top;          /* Position caption above the table */
+  font-size     : 0.88rem;
+  font-weight   : 600;
+  color         : #64748b;
+  padding       : 12px 16px 8px;
+  text-align    : left;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+/* All th and td share basic padding and border */
+th,
+td {
+  padding       : 13px 16px;
+  border        : 1px solid var(--clr-border);
+  text-align    : left;
+  font-size     : 0.93rem;
+  vertical-align: middle;
+}
+
+
+/* ============================================================
+   9. TABLE HEADER (thead > tr > th)
+   Dark background with white text to stand out from data rows.
+   ============================================================ */
+thead th {
+  background    : var(--clr-th-bg);
+  color         : var(--clr-th-txt);
+  font-weight   : 600;
+  font-size     : 0.9rem;
+  letter-spacing: 0.3px;
+  border-color  : #374151;    /* Slightly lighter border for header */
+}
+
+/* First column header (e.g. "S.No", "Day") – center aligned */
+thead th:first-child {
+  text-align : center;
+}
+
+
+/* ============================================================
+   10. ALTERNATING ROW COLORS (Zebra Striping)
+   :nth-child(odd) → 1st row, 3rd row, 5th row…
+   :nth-child(even) → 2nd row, 4th row…
+   ============================================================ */
+tbody tr:nth-child(odd) {
+  background : var(--clr-row-odd);
+}
+
+tbody tr:nth-child(even) {
+  background : var(--clr-row-even);
+}
+
+
+/* ============================================================
+   11. ROW HOVER EFFECT
+   When the mouse hovers over a row, it changes color.
+   transition makes the color change smooth (0.2s).
+   ============================================================ */
+tbody tr {
+  transition : background 0.2s ease;
+}
+
+tbody tr:hover {
+  background : var(--clr-hover);
+  cursor     : default;
+}
+
+
+/* ============================================================
+   12. FIRST COLUMN – CENTER ALIGN (S.No)
+   ============================================================ */
+tbody td:first-child {
+  text-align  : center;
+  font-weight : 600;
+  color       : #6366f1;     /* Indigo for serial numbers */
+}
+
+
+/* ============================================================
+   13. TIMETABLE – DAY COLUMN & COLSPAN CELLS
+   ============================================================ */
+/* Day name cell (Monday, Tuesday, etc.) */
+.day-cell {
+  font-weight : 700;
+  color       : var(--clr-accent);
+  white-space : nowrap;      /* Prevents day names from wrapping */
+}
+
+/* Colspan cells (double-period classes) */
+.span-cell {
+  background    : var(--clr-span-bg);
+  color         : var(--clr-span-txt);
+  font-weight   : 600;
+  text-align    : center;
+  border-radius : 4px;
+  font-style    : italic;
+}
+
+/* Override hover on span-cell for clarity */
+tbody tr:hover .span-cell {
+  background : #ddd6fe;
+}
+
+
+/* ============================================================
+   14. PRODUCT TABLE – PRICE COLUMN HIGHLIGHT
+   .price-col class is added to both <th> and <td> cells
+   in the Price column.
+   ============================================================ */
+.price-col {
+  background    : var(--clr-price-bg) !important; /* Override zebra color */
+  color         : var(--clr-price-txt);
+  font-weight   : 700;
+  text-align    : right;      /* Right-align price numbers */
+}
+
+/* Keep the highlight on hover */
+tbody tr:hover .price-col {
+  background : #fef08a !important;
+}
+
+
+/* ============================================================
+   15. EXAM MARKS – MARKS GROUP HEADER
+   The "Marks (out of 100)" cell that spans 3 columns.
+   ============================================================ */
+.marks-group {
+  background  : #4338ca !important;  /* Deeper indigo for the group header */
+  text-align  : center;
+}
+
+
+/* ============================================================
+   16. EXAM MARKS – PASS / FAIL RESULT CELLS
+   .result-pass → green  (Pass)
+   .result-fail → red    (Fail)
+   ============================================================ */
+.result-pass {
+  background    : var(--clr-pass-bg) !important;
+  color         : var(--clr-pass-txt);
+  font-weight   : 700;
+  text-align    : center;
+  border-radius : 4px;
+}
+
+.result-fail {
+  background    : var(--clr-fail-bg) !important;
+  color         : var(--clr-fail-txt);
+  font-weight   : 700;
+  text-align    : center;
+  border-radius : 4px;
+}
+
+/* Keep colors on hover */
+tbody tr:hover .result-pass {
+  background : #bbf7d0 !important;
+}
+
+tbody tr:hover .result-fail {
+  background : #fecaca !important;
+}
+
+
+/* ============================================================
+   17. INFO BOX (Explanation boxes below each table)
+   ============================================================ */
+.info-box {
+  background    : var(--clr-info-bg);
+  border        : 1px solid var(--clr-info-bdr);
+  border-left   : 4px solid #93c5fd;
+  border-radius : 8px;
+  padding       : 16px 20px;
+  font-size     : 0.9rem;
+  color         : #1e3a5f;
+}
+
+.info-box strong {
+  display       : block;
+  margin-bottom : 8px;
+  font-size     : 0.95rem;
+}
+
+/* List inside info box */
+.info-box ul {
+  padding-left  : 20px;
+}
+
+.info-box ul li {
+  margin-bottom : 5px;
+  line-height   : 1.7;
+}
+
+
+/* ============================================================
+   18. FOOTER STYLES
+   ============================================================ */
+footer {
+  background : var(--clr-footer-bg);
+  color      : #94a3b8;
+  text-align : center;
+  padding    : 28px 20px;
+  font-size  : 0.9rem;
+}
+
+footer strong {
+  color : #f8fafc;
+}
+
+.footer-sub {
+  margin-top : 4px;
+  font-size  : 0.8rem;
+  color      : #64748b;
+}
+
+
+/* ============================================================
+   19. RESPONSIVE DESIGN (MOBILE SCREENS)
+   @media screen and (max-width: 768px) applies styles only
+   when the screen width is 768px or smaller (tablets, phones).
+   ============================================================ */
+@media screen and (max-width: 768px) {
+
+  /* Make the h1 smaller on mobile */
+  header h1 {
+    font-size : 2rem;
+  }
+
+  /* Reduce main padding on mobile */
+  main {
+    padding : 24px 12px 40px;
+  }
+
+  /* Reduce section spacing */
+  .table-section {
+    margin-bottom : 40px;
+  }
+
+  /* Make table card padding smaller */
+  .table-card {
+    border-radius : 8px;
+  }
+
+  /* Smaller cell padding on mobile */
+  th,
+  td {
+    padding   : 10px 12px;
+    font-size : 0.85rem;
+  }
+
+  /* Smaller caption on mobile */
+  caption {
+    font-size : 0.8rem;
+  }
+}
+
+/* Very small screens (phones in portrait) */
+@media screen and (max-width: 480px) {
+
+  header h1 {
+    font-size : 1.6rem;
+  }
+
+  .section-header h2 {
+    font-size : 1.15rem;
+  }
+
+  th,
+  td {
+    padding   : 8px 10px;
+    font-size : 0.82rem;
+  }
+}
+/* ============================================================
+   END OF style.css
+   ============================================================ */

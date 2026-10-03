@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <!-- Ensures the page displays correctly on mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="TableCraft – " />
+  <title>TableCraft – </title>
+
+  <!-- Link to our external CSS file -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <!-- <header> contains the top section of the page: title and subtitle -->
+  <header>
+    <div class="header-content">
+      <h1>🗂️ TableCraft</h1>
+      <p class="subtitle"></p>
+      <!-- A small tag showing the HTML elements used in this project -->
+     
+    </div>
+  </header>
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <!-- <main> holds all the primary content of the page -->
+  <main>
+
+    <!-- =====================================================
+         TABLE 1 – STUDENT DETAILS TABLE
+         Tags used: table, thead, tbody, tr, th, td, caption
+         ===================================================== -->
+    <section class="table-section" id="student-details">
+
+      <!-- Section heading (outside the table) -->
+      <div class="section-header">
+        <h2>📋 Table 1 – Student Details</h2>
+        <p class="section-desc">
+          This table shows basic student information.
+         
+        </p>
+      </div>
+
+      <!-- Card wrapper for the table -->
+      <div class="table-card">
+
+        <!-- <table> creates the table element -->
+        <table>
+
+          <!-- <caption> adds a title below/above the table (useful for screen readers) -->
+          <caption>Student Details – Academic Year 2025–2026</caption>
+
+          <!-- <thead> groups the header row(s) -->
+          <thead>
+            <tr>
+              <!-- <th> = table header cell (bold + centered by default) -->
+              <th>S.No</th>
+              <th>Student Name</th>
+              <th>Course</th>
+              <th>Year</th>
+              <th>CGPA</th>
+            </tr>
+          </thead>
+
+          <!-- <tbody> groups the body/data rows -->
+          <tbody>
+            <!-- <tr> = table row, <td> = table data cell -->
+            <tr>
+              <td>1</td>
+              <td>Aarav Sharma</td>
+              <td>B.Tech CSE</td>
+              <td>2nd Year</td>
+              <td>8.9</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Priya Nair</td>
+              <td>BCA</td>
+              <td>1st Year</td>
+              <td>9.2</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Rahul Verma</td>
+              <td>MCA</td>
+              <td>3rd Year</td>
+              <td>7.8</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Sneha Reddy</td>
+              <td>B.Sc IT</td>
+              <td>2nd Year</td>
+              <td>8.5</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Karan Mehta</td>
+              <td>B.Tech CSE</td>
+              <td>4th Year</td>
+              <td>9.0</td>
+            </tr>
+          </tbody>
+
+        </table>
+      </div><!-- end .table-card -->
+
+      <!-- Explanation box below the table -->
+      
+
+    </section>
+    <!-- END TABLE 1 -->
+
+
+    <!-- =====================================================
+         TABLE 2 – CLASS TIMETABLE
+         Tags used: table, thead, tbody, tr, th, td, caption, colspan
+         
+         colspan="2" means a cell spans across 2 columns.
+         Example: If Maths runs from 10 AM to 11 AM, one <td colspan="2"> 
+         covers both the 10:00 AM and 11:00 AM columns.
+         ===================================================== -->
+    <section class="table-section" id="timetable">
+
+      <div class="section-header">
+        <h2>🗓️ Table 2 – Class Timetable</h2>
+        <p class="section-desc">
+          A weekly class schedule. 
+        </p>
+      </div>
+
+      <div class="table-card">
+        <table>
+          <caption>Weekly Class Timetable – Semester 1</caption>
+
+          <thead>
+            <tr>
+              <th>Day</th>
+              <th>9:00 AM</th>
+              <th>10:00 AM</th>
+              <th>11:00 AM</th>
+              <th>12:00 PM</th>
+              <th>2:00 PM</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <!-- Monday: HTML spans 9 AM and 10 AM (colspan="2") -->
+            <tr>
+              <td class="day-cell">Monday</td>
+              <!-- colspan="2" makes this cell occupy TWO columns (9:00 AM + 10:00 AM) -->
+              <td colspan="2" class="span-cell">(Double Period)</td>
+              <td>CSS</td>
+              <td>Database</td>
+              <td>Aptitude</td>
+            </tr>
+
+            <!-- Tuesday: Normal periods, no colspan -->
+            <tr>
+              <td class="day-cell">Tuesday</td>
+              <td>Java</td>
+              <td>Python</td>
+              <td>HTML</td>
+              <td>CSS</td>
+              <td>Aptitude</td>
+            </tr>
+
+            <!-- Wednesday: Python spans 11 AM and 12 PM (colspan="2") -->
+            <tr>
+              <td class="day-cell">Wednesday</td>
+              <td>Database</td>
+              <td>Aptitude</td>
+              <!-- colspan="2" makes this cell occupy TWO columns (11:00 AM + 12:00 PM) -->
+              <td colspan="2" class="span-cell">Python (Lab – Double Period)</td>
+              <td>Java</td>
+            </tr>
+
+            <!-- Thursday: Normal periods -->
+            <tr>
+              <td class="day-cell">Thursday</td>
+              <td>CSS</td>
+              <td>Java</td>
+              <td>Aptitude</td>
+              <td>Python</td>
+              <td>Database</td>
+            </tr>
+
+            <!-- Friday: CSS spans 9 AM and 10 AM (colspan="2") -->
+            <tr>
+              <td class="day-cell">Friday</td>
+              <!-- colspan="2" for a CSS double period -->
+              <td colspan="2" class="span-cell">(Double Period)</td>
+              <td>HTML</td>
+              <td>Aptitude</td>
+              <td>Database</td>
+            </tr>
+          </tbody>
+
+        </table>
+      </div>
+
+      
+
+    </section>
+    <!-- END TABLE 2 -->
+
+
+    <!-- =====================================================
+         TABLE 3 – PRODUCT PRICE TABLE
+         Tags used: table, thead, tbody, tr, th, td, caption
+         CSS highlights the Price column with a special class.
+         ===================================================== -->
+    <section class="table-section" id="product-price">
+
+      <div class="section-header">
+        <h2>🛒 Table 3 – Product Price Table</h2>
+        <p class="section-desc">
+          A simple product catalog. 
+        </p>
+      </div>
+
+      <div class="table-card">
+        <table>
+          <caption>Product Inventory – October 2025</caption>
+
+          <thead>
+            <tr>
+              <th>S.No</th>
+              <th>Product</th>
+              <th>Category</th>
+              <th>Quantity</th>
+              <!-- The price column header also gets the highlight class -->
+              <th class="price-col">Price (₹)</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Wireless Mouse</td>
+              <td>Electronics</td>
+              <td>50</td>
+              <!-- Each price cell has class="price-col" for CSS highlighting -->
+              <td class="price-col">799</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>USB-C Hub</td>
+              <td>Electronics</td>
+              <td>30</td>
+              <td class="price-col">1,499</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Notebook (A4)</td>
+              <td>Stationery</td>
+              <td>200</td>
+              <td class="price-col">49</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Mechanical Keyboard</td>
+              <td>Electronics</td>
+              <td>20</td>
+              <td class="price-col">2,999</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Desk Lamp</td>
+              <td>Furniture</td>
+              <td>40</td>
+              <td class="price-col">549</td>
+            </tr>
+          </tbody>
+
+        </table>
+      </div>
+
+      
+
+    </section>
+    <!-- END TABLE 3 -->
+
+
+    <!-- =====================================================
+         TABLE 4 – EXAM MARKS TABLE
+         Tags used: table, thead, tbody, tfoot, tr, th, td, caption, rowspan
+         CSS visually shows Pass (green) and Fail (red).
+         
+         rowspan="2" is demonstrated in the thead to show how a <th>
+         can span two header rows.
+         ===================================================== -->
+    <section class="table-section" id="exam-marks">
+
+      <div class="section-header">
+        <h2>📊 Table 4 – Exam Marks</h2>
+        <p class="section-desc">
+          Marks scored by students in different subjects.
+          
+        </p>
+      </div>
+
+      <div class="table-card">
+        <table>
+          <caption>Mid-Term Exam Results – 2025</caption>
+
+          <!-- 
+            Two-row header using rowspan:
+            - "S.No" and "Student Name" span 2 rows (rowspan="2")
+              because they don't need sub-columns.
+            - "Marks" spans 3 columns (colspan="3") in the first row,
+              and the three subject names appear in the second row beneath it.
+            - "Total" and "Result" also span 2 rows.
+          -->
+          <thead>
+            <!-- First header row -->
+            <tr>
+              <!-- rowspan="2" means this <th> occupies 2 rows vertically -->
+              <th rowspan="2">S.No</th>
+              <th rowspan="2">Student Name</th>
+              <!-- colspan="3" groups the three subject columns under one heading -->
+              <th colspan="3" class="marks-group">Marks (out of 100)</th>
+              <th rowspan="2">Total</th>
+              <th rowspan="2">Result</th>
+            </tr>
+            <!-- Second header row: only the 3 subject sub-columns -->
+            <tr>
+              <th>HTML</th>
+              <th>CSS</th>
+              <th>Java</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Aarav Sharma</td>
+              <td>88</td>
+              <td>91</td>
+              <td>76</td>
+              <td><strong>255</strong></td>
+              <!-- CSS class "pass" gives this cell a green background -->
+              <td class="result-pass">✅ Pass</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Priya Nair</td>
+              <td>95</td>
+              <td>89</td>
+              <td>92</td>
+              <td><strong>276</strong></td>
+              <td class="result-pass">✅ Pass</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Rahul Verma</td>
+              <td>45</td>
+              <td>38</td>
+              <td>50</td>
+              <td><strong>133</strong></td>
+              <!-- CSS class "fail" gives this cell a red background -->
+              <td class="result-fail">❌ Fail</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Sneha Reddy</td>
+              <td>78</td>
+              <td>84</td>
+              <td>80</td>
+              <td><strong>242</strong></td>
+              <td class="result-pass">✅ Pass</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Karan Mehta</td>
+              <td>55</td>
+              <td>42</td>
+              <td>48</td>
+              <td><strong>145</strong></td>
+              <td class="result-fail">❌ Fail</td>
+            </tr>
+          </tbody>
+
+        </table>
+      </div>
+
+      
+
+    </section>
+    <!-- END TABLE 4 -->
+
+  </main>
+  <!-- END MAIN -->
+
+
+  <!-- ========== FOOTER ========== -->
+  <!-- <footer> contains closing information of the page -->
+  <footer>
+    <p>
+      🗂️ <strong>TableCraft</strong>
+    </p>
+    <p class="footer-sub"></p>
+  </footer>
+
+</body>
+</html>
